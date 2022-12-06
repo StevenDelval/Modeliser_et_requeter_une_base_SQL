@@ -21,7 +21,7 @@ meta.reflect(bind=engine)
 
 df = pd.read_csv("test.csv")
 df["active"] = df["active"].astype(int)
-df.to_sql('test',
+df.to_sql('test2',
           con=engine,
           index=False,
           index_label='id',
