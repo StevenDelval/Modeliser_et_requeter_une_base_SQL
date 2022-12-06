@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine 
+from sqlalchemy import create_engine ,insert
 from sqlalchemy_utils import database_exists, create_database
 import pandas as pd
 
@@ -27,12 +27,12 @@ df.to_sql('test',
           index_label='id',
           if_exists='replace')
 
-# emp = meta.tables["emp"]
+emp = meta.tables["emp"]
 
-# query = insert(emp) 
-# values_list = [{'Id':'2', 'name':'ram', 'salary':80000, 'active':False},
-#                {'Id':'3', 'name':'ramesh', 'salary':70000, 'active':True}]
-# ResultProxy = connection.execute(query,values_list)
+query = insert(emp) 
+values_list = [{'id':'2', 'name':'ram', 'salary':80000, 'active':False},
+                {'id':'3', 'name':'ramesh', 'salary':70000, 'active':True}]
+ResultProxy = connection.execute(query,values_list)
 
 trans.commit()
 connection.close()
